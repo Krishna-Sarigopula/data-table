@@ -1,0 +1,283 @@
+﻿/*-------------Custom Grid------------------start */
+.jqGridList {
+    clear: both;
+    display: block;
+    position: relative;
+    font-size: 12px;
+    padding-top: 10px;
+}
+
+    .jqGridList .norecords {
+        text-align: center;
+        font-size: 20px;
+        color: #5A4D51;
+        border: #5A4D51 solid 1px;
+    }
+
+    .jqGridList .searchhead {
+        background: #5A4D51;
+        padding: 10px 10px;
+        border-radius: 6px 6px 0px 0px;
+        color: #fff;
+        min-height: 20px;
+    }
+
+        .jqGridList .searchhead .searchdrop {
+            border-radius: 3px;
+            padding: 2px;
+            border: 1px solid #E2D8C3;
+        }
+
+        .jqGridList .searchhead .searchtext {
+            border-radius: 3px;
+            padding: 3px;
+            border: 1px solid #E2D8C3;
+        }
+
+        .jqGridList .searchhead .searchdrop:focus {
+            border-radius: 3px;
+            padding: 2px;
+            border: 1px solid #E2D8C3;
+        }
+
+        .jqGridList .searchhead .searchtext:focus {
+            border-radius: 3px;
+            padding: 3px;
+            border: 1px solid #E2D8C3;
+        }
+
+        .jqGridList .searchhead .searchbtn {
+            background: url(/images/search.png) no-repeat;
+            width: 20px;
+            height: 20px;
+            line-height: 20px;
+            text-indent: -999px;
+            display: inline-block;
+            cursor: pointer;
+        }
+
+        .jqGridList .searchhead .searchrefresh {
+            background: url(/images/refresh.png) no-repeat;
+            width: 20px;
+            height: 20px;
+            line-height: 20px;
+            text-indent: -999px;
+            display: inline-block;
+            cursor: pointer;
+        }
+
+    .jqGridList .customGrid {
+        color: #3a3a3a;
+        border-left: 1px solid #5A4D51;
+        border-right: 1px solid #5A4D51;
+    }
+
+        .jqGridList .customGrid table {
+            width: 100%;
+            border: none;
+            border-top: none;
+        }
+
+            .jqGridList .customGrid table thead {
+            }
+
+            .jqGridList .customGrid table tbody {
+            }
+
+            .jqGridList .customGrid table th {
+                background-color: #fff;
+                color: #5A4D51;
+                font-weight: bold;
+                -webkit-touch-callout: none;
+                -webkit-user-select: none;
+                -khtml-user-select: none;
+                -moz-user-select: none;
+                -ms-user-select: none;
+                cursor: pointer;
+                height: 30px;
+                font-size: 12px;
+                padding: 0px 1%;
+            }
+
+            .jqGridList .customGrid table td {
+                padding: 0px 1%;
+            }
+
+        .jqGridList .customGrid tr:nth-child(odd) {
+            background-color: #e2d8c3;
+            height: 30px;
+        }
+
+        .jqGridList .customGrid tr:nth-child(even) {
+            background-color: #f3f3f3;
+            height: 30px;
+        }
+
+        .jqGridList .customGrid .link {
+            cursor: pointer;
+            padding: 0px 5px;
+            text-decoration: underline;
+        }
+
+            .jqGridList .customGrid .link:first-child {
+                cursor: pointer;
+                padding: 0px 5px 0px 0px;
+                text-decoration: underline;
+            }
+
+            .jqGridList .customGrid .link:last-child {
+                cursor: pointer;
+                padding: 0px 0px 0px 5px;
+                text-decoration: underline;
+            }
+
+    .jqGridList .paging {
+        color: #fff;
+        width: auto;
+        background: #5A4D51;
+        height: 30px;
+        line-height: 30px;
+        border-radius: 0px 0px 6px 6px;
+        padding: 0px 10px;
+        user-select: none;
+        -webkit-touch-callout: none;
+        -webkit-user-select: none;
+        -khtml-user-select: none;
+        -moz-user-select: none;
+        -ms-user-select: none;
+    }
+
+        .jqGridList .paging .pagestodispay {
+            float: left;
+            width: auto;
+        }
+
+            .jqGridList .paging .pagestodispay select {
+                width: 50px;
+            }
+
+        .jqGridList .paging .Records {
+            text-align: left;
+            float: left;
+            width: auto;
+            padding: 0px 2%;
+        }
+
+        .jqGridList .paging .currentrecords {
+            /*text-align: left;*/
+            float: left;
+            width: auto;
+            padding: 0px 2%;
+        }
+
+        .jqGridList .paging .totalrecords {
+            text-align: left;
+            float: left;
+            width: auto;
+            padding: 0px 2%;
+        }
+
+        .jqGridList .paging .first, .jqGridList .paging .last {
+            float: left;
+            cursor: pointer;
+            text-decoration: underline;
+            margin: 0px 10px;
+        }
+
+            .jqGridList .paging .first:hover, .jqGridList .paging .last:hover {
+                text-decoration: none;
+            }
+
+        .jqGridList .paging .forward {
+            float: left;
+            width: auto;
+            padding-right: 1%;
+            cursor: pointer;
+            display: none;
+        }
+
+        .jqGridList .paging .pages {
+            float: left;
+            text-align: center;
+            width: auto;
+        }
+
+            .jqGridList .paging .pages .pagespan {
+                padding: 0px 5px 0px 5px;
+                user-select: none;
+                cursor: pointer;
+                -webkit-touch-callout: none;
+                -webkit-user-select: none;
+                -khtml-user-select: none;
+                -moz-user-select: none;
+                -ms-user-select: none;
+            }
+
+                .jqGridList .paging .pages .pagespan:hover {
+                    opacity: 0.1;
+                }
+
+            .jqGridList .paging .pages .selectedpage {
+                border: 1px solid #E2D8C3;
+                user-select: none;
+                -webkit-touch-callout: none;
+                -webkit-user-select: none;
+                -khtml-user-select: none;
+                -moz-user-select: none;
+                -ms-user-select: none;
+                border-radius: 3px;
+            }
+
+        .jqGridList .paging .PageHelp {
+            float: left;
+            text-align: right;
+            width: 13%;
+            padding-right: 2%;
+        }
+
+        .jqGridList .paging .export {
+            float: right;
+        }
+
+            .jqGridList .paging .export img {
+                height: 30px;
+                width: 30px;
+                cursor: pointer;
+            }
+
+.prevnextdiv {
+    margin-bottom: 10px;
+    user-select: none;
+    -webkit-touch-callout: none;
+    -webkit-user-select: none;
+    -khtml-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    text-align: center;
+    float:left;
+}
+
+    .prevnextdiv .prev {
+        background: url(/images/prev.png) no-repeat;
+        width: 40px;
+        height: 18px;
+        line-height: 20px;
+        text-indent: 100%;
+        display: inline-block;
+        cursor: pointer;
+        margin: 0 20px;
+        overflow:hidden;
+    }
+
+    .prevnextdiv .next {
+        background: url(/images/next.png) no-repeat;
+        width: 40px;
+        height: 18px;
+        line-height: 20px;
+        text-indent: 100%;
+        display: inline-block;
+        cursor: pointer;
+        margin: 0 20px;
+        overflow:hidden;
+    }
+/*-------------Custom Grid------------------End */

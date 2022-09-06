@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="/scripts/jquery-1.10.1.min.js"></script>
+    <script src="/Scripts/JqueryGrid-v0.1.js"></script>
+    <link href="/styles/JqueryGrid-v0.1.css" rel="stylesheet" />
+    <title>JqGrid</title>
+
+    <script type="text/javascript">
+        window.onload = bindJqGrid();
+
+        function bindJqGrid() {
+            try {
+
+                ///JqGrid Parameters
+
+                var data = [
+                    {
+                        GroupName: 'test',
+                        TotalMembers: 10,
+                        IsResidentGroupText: true
+                    },
+                    {
+                        GroupName: 'test2',
+                        TotalMembers: 10,
+                        IsResidentGroupText: true
+                    }
+                ];
+
+                JqGrid('Data', 'Paging', 'EditData', 'DataSearchBy', 'DataSearchValue', 'lblSystemError', 'DataSearch', 'DataRefresh',
+                    ['Group Name', 'Total Members', 'Is Resident Group', ''],
+                    ['GroupName', 'TotalMembers', 'IsResidentGroupText'],
+                    ['GroupName', 'TotalMembers', 'IsResidentGroupText', false],
+                    ['25', '30', '20', '25'],
+                    ['left', 'center', 'center', 'center'],
+                    'ApartmentRevenueTypeID',
+                    ['T', 'Edit', 'Edit Group Name', true],
+                    ['T', 'Delete', 'Delete Group Name', true],
+                    ['i', 'i'],
+                    ['Group Permissions', 'Group Members'],
+                    ['images/permissions_small.png', 'images/groups_small.png'],
+                    ['GroupPermissions', 'ShowMembersPopUP'],
+                    [], "No Groups found",
+                    "Group deleted succesfully",
+                    data,
+                    10,
+                    'ApartmentGroups.aspx/DeleteApartmentGroup',
+                    [],
+                    "NA",
+                    ['GroupName', 'asc']);
+
+            }
+            catch (err) {
+                alert(err + "change");
+            }
+        }
+
+
+        function bindJqGridAPI() {
+            try {
+
+                var url = "ApartmentGroups.aspx/GetApartmentGroups";
+                $.ajax({
+                    type: "POST",
+                    url: url,
+                    contentType: "application/json; charset=utf-8",
+                    dataType: "json",
+                    success: function (response) {
+                        ///JqGrid Parameters
+
+                        JqGrid('Data', 'Paging', 'EditData', 'DataSearchBy', 'DataSearchValue', 'lblSystemError', 'DataSearch', 'DataRefresh',
+                            ['Group Name', 'Total Members', 'Is Resident Group', ''],
+                            ['GroupName', 'TotalMembers', 'IsResidentGroupText'],
+                            ['GroupName', 'TotalMembers', 'IsResidentGroupText', false],
+                            ['25', '30', '20', '25'],
+                            ['left', 'center', 'center', 'center'],
+                            'ApartmentRevenueTypeID',
+                            ['T', 'Edit', 'Edit Group Name', true],
+                            ['T', 'Delete', 'Delete Group Name', true],
+                            ['i', 'i'],
+                            ['Group Permissions', 'Group Members'],
+                            ['images/permissions_small.png', 'images/groups_small.png'],
+                            ['GroupPermissions', 'ShowMembersPopUP'],
+                            [], "No Groups found",
+                            "Group deleted succesfully",
+                            response.d,
+                            10,
+                            'ApartmentGroups.aspx/DeleteApartmentGroup',
+                            [],
+                            "NA",
+                            ['GroupName', 'asc']);
+                    },
+                    error: function (response) {
+                        alert("failure : " + response.statusText);
+                    }
+                });
+            }
+            catch (err) {
+                alert(err + "change");
+            }
+        }
+    </script>
+</head>
+
+<body>
+    <h1>JQUERY data table</h1>
+    <div class="jqGridList">
+        <div class="searchhead">
+            Serach By:
+            <select id="DataSearchBy" class="searchdrop">
+                <!-- Notes: Search area.id="DataSearchBy" is must. Include the search fields below  -->
+                <option value="GroupName">Group Name</option>
+
+            </select>
+            <input type="text" id="DataSearchValue" class="searchtext" />
+            <!-- Notes: Don't Change -->
+            <span id="DataSearch" class="searchbtn" title="Go">GO</span>
+            <!-- Notes: Don't Change. Can be replaced with image -->
+            <span id="DataRefresh" class="searchrefresh" title="Refresh">Refresh</span>
+            <!-- Notes: Don't Change -->
+
+            <!-- Notes: Change the value only -->
+        </div>
+        <div id="Data" class="customGrid"></div>
+        <!-- Notes: List Area Don't Change -->
+
+        <div id="Paging" class="paging"></div>
+        <!-- Notes: Don't Change -->
+    </div>
+</body>
+
+</html>
